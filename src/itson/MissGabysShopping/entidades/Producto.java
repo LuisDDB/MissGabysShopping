@@ -4,7 +4,9 @@
  */
 package itson.MissGabysShopping.entidades;
 
-import java.util.Date;
+import java.sql.Date;
+
+
 
 /**
  *
@@ -16,11 +18,13 @@ public class Producto {
     private int existencia=0;
     private double precioUnitario=0;
     private String descripcion="";
-    private Date caducidad= new Date();
+    private Date caducidad=new Date(0, 0, 0);
     private String marca="";
+    private String categoria="";
+    private String unidadMedida="";
 
    
-    public Producto(int id,String nombre, int existencia, double precioUnitario, String descripcion, Date caducidad, String marca) {
+    public Producto(int id,String nombre, int existencia, double precioUnitario, String descripcion, Date caducidad, String marca, String categoria, String unidadMedida) {
     this.id=id;
     this.nombre=nombre;
     this.existencia=existencia;
@@ -28,6 +32,8 @@ public class Producto {
     this.descripcion=descripcion;
     this.caducidad=caducidad;
     this.marca=marca;
+    this.categoria=categoria;
+    this.unidadMedida=unidadMedida;
     
     }
     
@@ -129,6 +135,34 @@ public class Producto {
      */
     public void setMarca(String marca) {
         this.marca = marca;
+    }
+
+    /**
+     * @return the categoria
+     */
+    public String getCategoria() {
+        return categoria;
+    }
+
+    /**
+     * @param categoria the categoria to set
+     */
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    /**
+     * @return the unidadMedida
+     */
+    public String getUnidadMedida() {
+        return unidadMedida;
+    }
+
+    /**
+     * @param unidadMedida the unidadMedida to set
+     */
+    public void setUnidadMedida(String unidadMedida) {
+        this.unidadMedida = unidadMedida;
     }
     
 }
