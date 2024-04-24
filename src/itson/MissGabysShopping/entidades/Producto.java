@@ -4,6 +4,8 @@
  */
 package itson.MissGabysShopping.entidades;
 
+import controlador.DAO.ProductoDAOImplement;
+import controlador.baseDatos.baseDatos;
 import java.sql.Date;
 
 
@@ -24,8 +26,19 @@ public class Producto {
     private String unidadMedida="";
 
    
-    public Producto(int id,String nombre, int existencia, double precioUnitario, String descripcion, Date caducidad, String marca, String categoria, String unidadMedida) {
+    public Producto(int id, String nombre, int existencia, double precioUnitario, String descripcion, Date caducidad, String marca, String categoria, String unidadMedida) {
     this.id=id;
+    this.nombre=nombre;
+    this.existencia=existencia;
+    this.precioUnitario=precioUnitario;
+    this.descripcion=descripcion;
+    this.caducidad=caducidad;
+    this.marca=marca;
+    this.categoria=categoria;
+    this.unidadMedida=unidadMedida;
+    
+    }
+    public Producto(String nombre, int existencia, double precioUnitario, String descripcion, Date caducidad, String marca, String categoria, String unidadMedida) {
     this.nombre=nombre;
     this.existencia=existencia;
     this.precioUnitario=precioUnitario;
@@ -164,5 +177,17 @@ public class Producto {
     public void setUnidadMedida(String unidadMedida) {
         this.unidadMedida = unidadMedida;
     }
+    
+    public boolean ingresarDatos (Producto producto){
+        baseDatos conexion = new baseDatos();
+        ProductoDAOImplement ingresar = new ProductoDAOImplement(conexion.getConnection());
+        return ingresar.agregar(producto);
+        
+    }
+    
+   
+    
+    
+    
     
 }

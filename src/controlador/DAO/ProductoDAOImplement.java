@@ -11,7 +11,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import itson.MissGabysShopping.entidades.Producto;
-import modelo.cliente;
 
 /**
  *
@@ -31,9 +30,7 @@ public class ProductoDAOImplement {
      * @param _object Objeto que se agregara a la base de datos
      * @return boolean se agregó o no
      */
-    public boolean agregar(Object _object) {
-
-        Producto producto = (Producto) _object;
+    public boolean agregar(Producto producto) {
 
         boolean _respuesta = false;
 
@@ -132,13 +129,13 @@ public class ProductoDAOImplement {
     /**
      * Metodo que se encarga de sobreescribir informacion en la base de datos
      *
-     * @param _object los nuevos datos
+     * @param producto los nuevos datos
      * @param objetivo El objeto que sera remplazado
      * @return si fue posible hacer la operación
      */
-    public boolean modificar(Object _object, int objetivo) {
+    public boolean modificar(Producto producto, int objetivo) {
 
-        Producto producto = (Producto) _object;
+        
 
         boolean _respuesta = false;
 
@@ -186,7 +183,7 @@ public class ProductoDAOImplement {
      * @param _id a buscar
      * @return un objeto tipo producto
      */
-    public Object buscarPorId(int _id) {
+    public Producto buscarxId(int _id) {
 
         Producto producto = null;
 
@@ -197,6 +194,7 @@ public class ProductoDAOImplement {
                 .append("producto.nombre, ")
                 .append("producto.existencia, ")
                 .append("producto.precioUnitario, ")
+                .append("producto.descripcion, ")
                 .append("producto.caducidad, ")
                 .append("producto.marca, ")
                 .append("producto.categoria, ")
@@ -235,15 +233,15 @@ public class ProductoDAOImplement {
         return producto;
 
     }
-    
-    
+
     /**
      * Buscador de objetos
-     * @param _campo por el se buscara
-     * @param _dato filtro que se usa para buscar
-     * @return 
+     *
+     * @param campo por el se buscara
+     * @param dato filtro que se usa para buscar
+     * @return
      */
-    public Object buscarPorId(String campo, String _dato) {
+    public List<Producto> buscarxCampo(String campo, String dato) {
 
         List<Producto> productos = new ArrayList<Producto>();
 
@@ -254,25 +252,26 @@ public class ProductoDAOImplement {
                 .append("producto.nombre, ")
                 .append("producto.existencia, ")
                 .append("producto.precioUnitario, ")
+                .append("producto.descripcion, ")
                 .append("producto.caducidad, ")
                 .append("producto.marca, ")
                 .append("producto.categoria, ")
                 .append("producto.unidadMedida ")
                 .append("FROM tienda.producto ")
-                .append("WHERE producto."+campo+" = ?;");
+                .append("WHERE producto." + campo + " = ?;");
 
         PreparedStatement _statement;
 
         try {
             _statement = this._connection.prepareStatement(_sql.toString());
 
-            _statement.setString(1, _dato);
+            _statement.setString(1, dato);
 
             ResultSet _respuesta = _statement.executeQuery();
 
             while (_respuesta.next()) {
 
-                 productos.add( new Producto(
+                productos.add(new Producto(
                         _respuesta.getInt("idProducto"),
                         _respuesta.getString("nombre"),
                         _respuesta.getInt("existencia"),
@@ -293,7 +292,4 @@ public class ProductoDAOImplement {
 
     }
 
-   
-
-   
 }

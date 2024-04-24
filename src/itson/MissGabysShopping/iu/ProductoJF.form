@@ -48,35 +48,35 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jPanelBuscar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
+                              <Component id="btnRegresarMenu" min="-2" pref="120" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="688" max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                          <Component id="jPanelIntroducir" min="-2" pref="227" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-                                  <Component id="jPanelIntroducir" min="-2" pref="227" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="329" max="-2" attributes="0"/>
                                   <Component id="jPanelEliminar" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="-2" pref="688" max="-2" attributes="0"/>
-                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jPanelBuscar" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="316" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="jPanelActualizar" min="-2" pref="227" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="319" max="-2" attributes="0"/>
-                  <Component id="btnRegresarMenu" min="-2" pref="120" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+                  <EmptySpace pref="18" max="32767" attributes="0"/>
+                  <Component id="jPanelActualizar" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -88,16 +88,20 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="jPanelEliminar" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jPanelEliminar" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jPanelBuscar" min="-2" pref="222" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jPanelIntroducir" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jPanelBuscar" min="-2" pref="222" max="-2" attributes="0"/>
+                          <Component id="btnRegresarMenu" min="-2" pref="39" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jPanelActualizar" max="32767" attributes="0"/>
-                      <Component id="jPanelIntroducir" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="12" max="32767" attributes="0"/>
-                  <Component id="btnRegresarMenu" min="-2" pref="39" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                  <EmptySpace pref="11" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -142,7 +146,7 @@
                           <Component id="txfNombreIngresar" max="32767" attributes="0"/>
                           <Component id="txfExistenciaIngresar" max="32767" attributes="0"/>
                           <Component id="txfPrecioUnitarioIngresar" max="32767" attributes="0"/>
-                          <Component id="txfDescripciónIngresar" max="32767" attributes="0"/>
+                          <Component id="txfDescripcionIngresar" max="32767" attributes="0"/>
                           <Component id="txfCaducidadIngresar" max="32767" attributes="0"/>
                           <Component id="txfMarcaIngresar" max="32767" attributes="0"/>
                           <Component id="txfCategoriaIngresar" alignment="0" max="32767" attributes="0"/>
@@ -174,7 +178,7 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txfDescripciónIngresar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txfDescripcionIngresar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -197,7 +201,7 @@
                           <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txfUnidadMedidaIngresar" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="54" max="32767" attributes="0"/>
                       <Component id="btnIngresarP" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
@@ -236,7 +240,7 @@
                 <Property name="text" type="java.lang.String" value="Descripci&#xf3;n"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txfDescripci&#xf3;nIngresar">
+            <Component class="javax.swing.JTextField" name="txfDescripcionIngresar">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
@@ -256,6 +260,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ingresar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIngresarPActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel18">
               <Properties>
@@ -329,9 +336,9 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
                     <StringItem index="0" value="Id"/>
-                    <StringItem index="1" value="Nombre"/>
-                    <StringItem index="2" value="Fecha de caducidad"/>
-                    <StringItem index="3" value="Marca"/>
+                    <StringItem index="1" value="nombre"/>
+                    <StringItem index="2" value="caducidad"/>
+                    <StringItem index="3" value="marca"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -343,6 +350,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Eliminar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarPActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txfCampoEliminar">
             </Component>
@@ -407,11 +417,11 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="6">
                     <StringItem index="0" value="Id"/>
-                    <StringItem index="1" value="Nombre"/>
-                    <StringItem index="2" value="Existencia"/>
-                    <StringItem index="3" value="Precio"/>
-                    <StringItem index="4" value="Fecha de caducidad"/>
-                    <StringItem index="5" value="Marca"/>
+                    <StringItem index="1" value="nombre"/>
+                    <StringItem index="2" value="existencia"/>
+                    <StringItem index="3" value="precioUnitario"/>
+                    <StringItem index="4" value="caducidad"/>
+                    <StringItem index="5" value="marca"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -497,6 +507,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Buscar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -505,54 +518,69 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLabel17" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel16" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel13" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel12" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel14" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel15" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="jLabel17" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel16" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel13" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel12" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel14" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel15" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="txfNombreActualizar" alignment="0" max="32767" attributes="0"/>
                                           <Component id="txfExistenciaActualizar" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txfPrecioUnitarioActualizar" alignment="0" pref="90" max="32767" attributes="0"/>
-                                          <Component id="txfDescripciónActualizar" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txfPrecioUnitarioActualizar" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txfDescripcionActualizar" alignment="0" max="32767" attributes="0"/>
                                           <Component id="txfCaducidadActualizar" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txfMarcaActualizar" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txfMarcaActualizar" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                      <Component id="btnActualizarP" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="jLabel21" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel20" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="txfCategoriaActualizar" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txfUnidadMedidaActualizar" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLabel21" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel20" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txfCategoriaIngresar1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txfUnidadMedidaIngresar1" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
+                                  <Component id="txfIdActualizar" max="32767" attributes="0"/>
+                                  <Component id="jLabel22" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="btnActualizarP" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -561,6 +589,12 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel11" min="-2" pref="25" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="txfIdActualizar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txfNombreActualizar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -578,7 +612,7 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txfDescripciónActualizar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txfDescripcionActualizar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -594,16 +628,16 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txfCategoriaIngresar1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txfCategoriaActualizar" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txfUnidadMedidaIngresar1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txfUnidadMedidaActualizar" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="30" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnActualizarP" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -640,7 +674,7 @@
                 <Property name="text" type="java.lang.String" value="Descripci&#xf3;n"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txfDescripci&#xf3;nActualizar">
+            <Component class="javax.swing.JTextField" name="txfDescripcionActualizar">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel16">
               <Properties>
@@ -660,20 +694,35 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Actualizar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnActualizarPActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel21">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Unidad de medida"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txfUnidadMedidaIngresar1">
+            <Component class="javax.swing.JTextField" name="txfUnidadMedidaActualizar">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel20">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Categoria"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txfCategoriaIngresar1">
+            <Component class="javax.swing.JTextField" name="txfCategoriaActualizar">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel22">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="ID del producto a modificar"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txfIdActualizar">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel23">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Datos a modificar"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
