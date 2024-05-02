@@ -23,4 +23,5 @@ public class Venta {
     double impuesto;
     Tipo tipoPago;
     
+    
 }
