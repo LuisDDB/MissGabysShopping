@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import itson.MissGabysShopping.entidades.Producto;
+import mx.itson.missgabysshopping.entidades.Producto;
 
 /**
  *
