@@ -4,11 +4,9 @@
  */
 package mx.itson.missgabysshopping.iu;
 
-//W 1442
+//W 880, 694
 
 import java.awt.BorderLayout;
-
-//H 559
 
 /**
  *
@@ -23,7 +21,7 @@ public class Main extends javax.swing.JFrame {
         initComponents();
         
         InicioJP p1 = new InicioJP();
-        p1.setSize(1442, 559) ;
+        p1.setSize(880, 694) ;
         p1.setLocation(0, 0);
         
         content.removeAll();
@@ -53,32 +51,63 @@ public class Main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        PanelEstatico.setBackground(new java.awt.Color(255, 204, 255));
-        PanelEstatico.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        PanelEstatico.setBackground(new java.awt.Color(153, 0, 153));
 
-        btnProducto.setFont(new java.awt.Font("Corbel", 0, 12)); // NOI18N
+        btnProducto.setBackground(new java.awt.Color(255, 204, 255));
+        btnProducto.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         btnProducto.setText("Producto");
+        btnProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 255), 5));
+        btnProducto.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnProducto.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnProducto.setIconTextGap(10);
         btnProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProductoActionPerformed(evt);
             }
         });
 
-        btnCliente.setFont(new java.awt.Font("Corbel", 0, 12)); // NOI18N
+        btnCliente.setBackground(new java.awt.Color(255, 204, 255));
+        btnCliente.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         btnCliente.setText("Cliente");
+        btnCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 255), 5));
+        btnCliente.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnCliente.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnCliente.setIconTextGap(10);
 
-        btnEmpleado.setFont(new java.awt.Font("Corbel", 0, 12)); // NOI18N
+        btnEmpleado.setBackground(new java.awt.Color(255, 204, 255));
+        btnEmpleado.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         btnEmpleado.setText("Empleado");
+        btnEmpleado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 255), 5));
+        btnEmpleado.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnEmpleado.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnEmpleado.setIconTextGap(10);
 
-        btnVenta.setFont(new java.awt.Font("Corbel", 0, 12)); // NOI18N
+        btnVenta.setBackground(new java.awt.Color(255, 204, 255));
+        btnVenta.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         btnVenta.setText("Venta");
+        btnVenta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 255), 5));
+        btnVenta.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnVenta.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnVenta.setIconTextGap(10);
+        btnVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVentaActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Caveat", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("MissGabysShopping");
 
-        btnInicio.setFont(new java.awt.Font("Corbel", 0, 12)); // NOI18N
+        btnInicio.setBackground(new java.awt.Color(255, 204, 255));
+        btnInicio.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         btnInicio.setText("Inicio");
+        btnInicio.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 255), 5, true));
+        btnInicio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnInicio.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnInicio.setIconTextGap(10);
+        btnInicio.setPreferredSize(new java.awt.Dimension(66, 24));
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInicioActionPerformed(evt);
@@ -92,15 +121,12 @@ public class Main extends javax.swing.JFrame {
             .addGroup(PanelEstaticoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(PanelEstaticoLayout.createSequentialGroup()
-                .addGroup(PanelEstaticoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(btnVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(btnProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         PanelEstaticoLayout.setVerticalGroup(
             PanelEstaticoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,71 +134,80 @@ public class Main extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnInicio)
+                .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnProducto)
+                .addComponent(btnProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCliente)
+                .addComponent(btnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEmpleado)
+                .addComponent(btnEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnVenta)
-                .addContainerGap(332, Short.MAX_VALUE))
+                .addComponent(btnVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         content.setBackground(new java.awt.Color(255, 255, 255));
-        content.setPreferredSize(new java.awt.Dimension(1442, 559));
 
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 928, Short.MAX_VALUE)
+            .addGap(0, 880, Short.MAX_VALUE)
         );
         contentLayout.setVerticalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 694, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(PanelEstatico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 312, Short.MAX_VALUE)
-                .addComponent(content, javax.swing.GroupLayout.PREFERRED_SIZE, 928, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(content, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(PanelEstatico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(content, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(content, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductoActionPerformed
-      
-        ProductoJP p2 = new ProductoJP();
-        p2.setSize(1442, 559) ;
-        p2.setLocation(0, 0);
-        
+
+        ProductoJP productoJP = new ProductoJP();
+        productoJP.setSize(880, 694) ;
+        productoJP.setLocation(0, 0);
+
         content.removeAll();
-        content.add(p2, BorderLayout.CENTER);
+        content.add(productoJP, BorderLayout.CENTER);
         content.revalidate();
         content.repaint();
-        
-        
     }//GEN-LAST:event_btnProductoActionPerformed
 
-    private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
-        InicioJP p1 = new InicioJP();
-        p1.setSize(1442, 559) ;
-        p1.setLocation(0, 0);
-        
+    private void btnVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentaActionPerformed
+        VentaJP ventaJP = new VentaJP();
+        ventaJP.setSize(880, 694) ;
+        ventaJP.setLocation(0, 0);
+
         content.removeAll();
-        content.add(p1, BorderLayout.CENTER);
+        content.add(ventaJP, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_btnVentaActionPerformed
+
+    private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
+        InicioJP inicioJP = new InicioJP();
+        inicioJP.setSize(880, 694) ;
+        inicioJP.setLocation(0, 0);
+
+        content.removeAll();
+        content.add(inicioJP, BorderLayout.CENTER);
         content.revalidate();
         content.repaint();
     }//GEN-LAST:event_btnInicioActionPerformed
