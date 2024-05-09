@@ -24,9 +24,9 @@ public class baseDatos {
 
         String _url = "jdbc:mysql://localhost:3306/tienda?allowPublicKeyRetrieval=true&useSSL=false";
         
-        String _user = "Luis Daniel";
+        String _user = "root";
 
-        String _password="Luis2004";
+        String _password="12425Gra";
         
         try{
             Class.forName("com.mysql.jdbc.Driver").newInstance();

@@ -39,14 +39,24 @@ public class Empleado {
    
    
 
-    public Empleado(String nombre, String direccion, String CorreoElectronico, String telefono, String rfc, String contacto,double sueldo) {
+    public Empleado(int idEmpleado,String nombre, String direccion, String nss, String telefono, String rfc, String puesto,double sueldo) {
+    this.idEmpleado=idEmpleado;
     this.nombre=nombre;
     this.direccion=direccion;
-    this.puesto=contacto;
+    this.puesto=puesto;
     this.nss=nss;
     this.telefono=telefono;
     this.rfc=rfc;
-    this.sueldo=this.sueldo;
+    this.sueldo=sueldo;
+    }
+    public Empleado(String nombre,String nss, String direccion, String telefono, String puesto, String rfc,double sueldo) {
+    this.nombre=nombre;
+    this.direccion=direccion;
+    this.puesto=puesto;
+    this.nss=nss;
+    this.telefono=telefono;
+    this.rfc=rfc;
+    this.sueldo=sueldo;
     }
    
 

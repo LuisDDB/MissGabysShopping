@@ -482,16 +482,16 @@ public class EmpleadoJP extends javax.swing.JPanel {
         
         DefaultTableModel model = (DefaultTableModel) tblEmpleados.getModel();
         model.setRowCount(0);
-        for(Empleado e: empleados){
+        for(Empleado a: empleados){
             model.addRow(new Object[]{
-                e.getIdEmpleado(),
-                e.getNombre(),
-                e.getNss(),
-                e.getDireccion(),
-                e.getTelefono(),
-                e.getPuesto(),
-                e.getRfc(),
-                e.getSueldo()
+                a.getIdEmpleado(),
+                a.getNombre(),
+                a.getNss(),
+                a.getDireccion(),
+                a.getTelefono(),
+                a.getPuesto(),
+                a.getRfc(),
+                a.getSueldo()
                     
      });
         }

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import mx.itson.missgabysshopping.entidades.Empleado;
+import mx.itson.missgabysshopping.entidades.Producto;
 
 
 /**
@@ -31,7 +32,7 @@ public class EmpleadoDAOIimplement {
         StringBuilder _sql = new StringBuilder();
         
         _sql.append("INSERT INTO tienda.empleado ")
-            .append("( nombre, direccion, nss, telefono, puesto, rfc, eliminado, sueldo ) ")
+            .append("( nombre, direccion, nss, telefono, puesto, rfc, sueldo ) ")
             .append("VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
         
         PreparedStatement _statement;
@@ -63,7 +64,7 @@ public class EmpleadoDAOIimplement {
         
         StringBuilder _sql = new StringBuilder();
         
-        _sql.append("DELETE FROM tienda.empleado e WHERE e.idempleado = ?;");
+        _sql.append("DELETE FROM tienda.empleado  WHERE empleado.idEmpleado = ?;");
         
         PreparedStatement _statement;
         
@@ -99,7 +100,7 @@ public class EmpleadoDAOIimplement {
             _respuesta = _statement.execute();
 
         } catch (SQLException ex) {
-            System.out.println("miTienda: Ha ocurrido un error al momento de eliminar el cliente a la base de datos, error: " + ex.getMessage());
+            System.out.println("miTienda: Ha ocurrido un error al momento de eliminar al empleado a la base de datos, error: " + ex.getMessage());
         }
 
         return _respuesta;
@@ -158,17 +159,16 @@ public class EmpleadoDAOIimplement {
         StringBuilder _sql = new StringBuilder();
         
         _sql.append("SELECT ")
-                .append("e.idEmpleado, ")
-                .append("e.nombre, ")
-                .append("e.direccion, ")
-                .append("e.nss, ")
-                .append("e.telefono, ")
-                .append("e.puesto, ")
-                .append("e.rfc, ")
-                .append("e.sueldo, ")
-                .append("e.eliminado ")
-            .append("FROM tienda.empleado e ")
-            .append("WHERE e.idEmpleado = ?;");
+                .append("empleado.idEmpleado, ")
+                .append("empleado.nombre, ")
+                .append("empleado.direccion, ")
+                .append("empleado.nss, ")
+                .append("empleado.telefono, ")
+                .append("empleado.puesto, ")
+                .append("empleado.rfc, ")
+                .append("empleado.sueldo, ")
+            .append("FROM tienda.empleado  ")
+            .append("WHERE empleado.idEmpleado = ?;");
         
         PreparedStatement _statement;
         
@@ -182,17 +182,18 @@ public class EmpleadoDAOIimplement {
             if (_respuesta.next()){
                 
                 
-                _empleado.setIdEmpleado(_respuesta.getInt("idEmpleado"));
-                _empleado.setNombre(_respuesta.getString("nombre"));
-                _empleado.setDireccion(_respuesta.getString("direccion"));
-                _empleado.setNss(_respuesta.getString("nss"));
-                _empleado.setTelefono(_respuesta.getString("telefono"));
-                _empleado.setPuesto(_respuesta.getString("puesto"));
-                _empleado.setRfc(_respuesta.getString("rfc"));
-                _empleado.setEliminado(_respuesta.getBoolean("eliminado"));
-                
-                
+                _empleado = new Empleado(
+                        _respuesta.getInt("idEmpleado"),
+                        _respuesta.getString("nombre"),
+                        _respuesta.getString("nss"),
+                        _respuesta.getString("rfc"),
+                        _respuesta.getString("telefono"),
+                        _respuesta.getString("direccion"),
+                        _respuesta.getString("puesto"),
+                        _respuesta.getDouble("sueldo"));
+
             }
+        
             
         } catch (SQLException ex) {
             System.out.println("miTienda: Ha ocurrido un error al momento de buscar al empleado en la base de datos, error: " + ex.getMessage());
@@ -209,15 +210,15 @@ public class EmpleadoDAOIimplement {
         StringBuilder _sql = new StringBuilder();
         
         _sql.append("SELECT  ")
-                .append("e.idEmpleado, ")
-                .append("e.nombre, ")
-                .append("e.direccion, ")
-                .append("e.correoElectronico, ")
-                .append("e.telefono, ")
-                .append("e.contacto, ")
-                .append("e.rfc, ")
-                .append("e.eliminado ")
-            .append("FROM tienda.empleado e ")
+                .append("empleado.idEmpleado, ")
+                .append("empleado.nombre, ")
+                .append("empleado.direccion, ")
+                .append("empleado.correoElectronico, ")
+                .append("empleado.telefono, ")
+                .append("empleado.contacto, ")
+                .append("empleado.rfc, ")
+                .append("empleado.eliminado ")
+            .append("FROM tienda.empleado  ")
             .append("WHERE " + _campo + " LIKE ?;");
         
         PreparedStatement _statement;
@@ -260,15 +261,15 @@ public class EmpleadoDAOIimplement {
         StringBuilder _sql = new StringBuilder();
         
         _sql.append("SELECT  ")
-                .append("e.idCliente, ")
-                .append("e.nombre, ")
-                .append("e.direccion, ")
-                .append("e.correoElectronico, ")
-                .append("e.telefono, ")
-                .append("e.contacto, ")
-                .append("e.rfc, ")
-                .append("e.eliminado ")
-            .append("FROM tienda.empleado e ");
+                .append("empleado.idCliente, ")
+                .append("empleado.nombre, ")
+                .append("empleado.direccion, ")
+                .append("empleado.correoElectronico, ")
+                .append("empleado.telefono, ")
+                .append("empleado.contacto, ")
+                .append("empleado.rfc, ")
+                .append("empleado.eliminado ")
+            .append("FROM tienda.empleado ");
         
         PreparedStatement _statement;
         
