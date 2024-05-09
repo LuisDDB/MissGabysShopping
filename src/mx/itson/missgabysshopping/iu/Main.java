@@ -81,6 +81,11 @@ public class Main extends javax.swing.JFrame {
         btnEmpleado.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnEmpleado.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnEmpleado.setIconTextGap(10);
+        btnEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEmpleadoActionPerformed(evt);
+            }
+        });
 
         btnVenta.setBackground(new java.awt.Color(255, 204, 255));
         btnVenta.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
@@ -211,6 +216,17 @@ public class Main extends javax.swing.JFrame {
         content.revalidate();
         content.repaint();
     }//GEN-LAST:event_btnInicioActionPerformed
+
+    private void btnEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpleadoActionPerformed
+         EmpleadoJP empleadoJP = new EmpleadoJP();
+        empleadoJP.setSize(880, 694) ;
+        empleadoJP.setLocation(0, 0);
+
+        content.removeAll();
+        content.add(empleadoJP, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_btnEmpleadoActionPerformed
 
     /**
      * @param args the command line arguments
