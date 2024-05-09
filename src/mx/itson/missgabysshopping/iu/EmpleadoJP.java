@@ -10,6 +10,7 @@ import controlador.baseDatos.baseDatos;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import mx.itson.missgabysshopping.entidades.Empleado;
 /**
  *
  * @author Aletz

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package itson.MissGabysShopping.models;
+package controlador.DAO;
 import controlador.baseDatos.MySQLConnection;
 import controlador.baseDatos.baseDatos;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import itson.MissGabysShopping.entidades.Client;
+import mx.itson.missgabysshopping.entidades.Client;
 
 /**
  *

@@ -6,7 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.Empleado;
+import mx.itson.missgabysshopping.entidades.Empleado;
+
 
 /**
  *
