@@ -456,8 +456,8 @@ public class EmpleadoJP extends javax.swing.JPanel {
                 txfDireccionIngresar.getText(),
                 txfnssIngresar.getText(),
                 txfTelefonoIngresar.getText(),
+               txfRfcIngresar.getText(),
                 txfPuestoIngresar.getText(),
-                txfRfcIngresar.getText(),
                 Double.parseDouble(txfsueldoIngresar.getText())
                 );
         baseDatos conexion = new baseDatos();
@@ -486,8 +486,8 @@ public class EmpleadoJP extends javax.swing.JPanel {
             model.addRow(new Object[]{
                 a.getIdEmpleado(),
                 a.getNombre(),
-                a.getNss(),
                 a.getDireccion(),
+                 a.getNss(),
                 a.getTelefono(),
                 a.getPuesto(),
                 a.getRfc(),

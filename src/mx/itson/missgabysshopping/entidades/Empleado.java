@@ -49,7 +49,7 @@ public class Empleado {
     this.rfc=rfc;
     this.sueldo=sueldo;
     }
-    public Empleado(String nombre,String nss, String direccion, String telefono, String puesto, String rfc,double sueldo) {
+    public Empleado(String nombre, String direccion, String nss, String telefono, String rfc, String puesto,double sueldo) {
     this.nombre=nombre;
     this.direccion=direccion;
     this.puesto=puesto;

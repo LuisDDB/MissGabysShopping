@@ -196,14 +196,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProductoActionPerformed
 
     private void btnVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentaActionPerformed
-        VentaJP ventaJP = new VentaJP();
-        ventaJP.setSize(880, 694) ;
-        ventaJP.setLocation(0, 0);
-
-        content.removeAll();
-        content.add(ventaJP, BorderLayout.CENTER);
-        content.revalidate();
-        content.repaint();
+        
     }//GEN-LAST:event_btnVentaActionPerformed
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
