@@ -44,7 +44,6 @@ public class Main extends javax.swing.JFrame {
         btnProducto = new javax.swing.JButton();
         btnCliente = new javax.swing.JButton();
         btnEmpleado = new javax.swing.JButton();
-        btnVenta = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnInicio = new javax.swing.JButton();
         content = new javax.swing.JPanel();
@@ -55,6 +54,7 @@ public class Main extends javax.swing.JFrame {
 
         btnProducto.setBackground(new java.awt.Color(255, 204, 255));
         btnProducto.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        btnProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/missgabysshopping/imagenes/product.png"))); // NOI18N
         btnProducto.setText("Producto");
         btnProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 255), 5));
         btnProducto.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -68,6 +68,7 @@ public class Main extends javax.swing.JFrame {
 
         btnCliente.setBackground(new java.awt.Color(255, 204, 255));
         btnCliente.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/missgabysshopping/imagenes/Cliente.png"))); // NOI18N
         btnCliente.setText("Cliente");
         btnCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 255), 5));
         btnCliente.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -76,6 +77,7 @@ public class Main extends javax.swing.JFrame {
 
         btnEmpleado.setBackground(new java.awt.Color(255, 204, 255));
         btnEmpleado.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        btnEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/missgabysshopping/imagenes/Empleado.png"))); // NOI18N
         btnEmpleado.setText("Empleado");
         btnEmpleado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 255), 5));
         btnEmpleado.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -87,19 +89,6 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        btnVenta.setBackground(new java.awt.Color(255, 204, 255));
-        btnVenta.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
-        btnVenta.setText("Venta");
-        btnVenta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 255), 5));
-        btnVenta.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnVenta.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnVenta.setIconTextGap(10);
-        btnVenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVentaActionPerformed(evt);
-            }
-        });
-
         jLabel1.setFont(new java.awt.Font("Caveat", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -107,6 +96,7 @@ public class Main extends javax.swing.JFrame {
 
         btnInicio.setBackground(new java.awt.Color(255, 204, 255));
         btnInicio.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        btnInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/missgabysshopping/imagenes/homeV2.png"))); // NOI18N
         btnInicio.setText("Inicio");
         btnInicio.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 255), 5, true));
         btnInicio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -123,15 +113,14 @@ public class Main extends javax.swing.JFrame {
         PanelEstatico.setLayout(PanelEstaticoLayout);
         PanelEstaticoLayout.setHorizontalGroup(
             PanelEstaticoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(PanelEstaticoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(btnProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         PanelEstaticoLayout.setVerticalGroup(
             PanelEstaticoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,8 +135,6 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(btnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -194,10 +181,6 @@ public class Main extends javax.swing.JFrame {
         content.revalidate();
         content.repaint();
     }//GEN-LAST:event_btnProductoActionPerformed
-
-    private void btnVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentaActionPerformed
-        
-    }//GEN-LAST:event_btnVentaActionPerformed
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
         InicioJP inicioJP = new InicioJP();
@@ -262,7 +245,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnEmpleado;
     private javax.swing.JButton btnInicio;
     private javax.swing.JButton btnProducto;
-    private javax.swing.JButton btnVenta;
     private javax.swing.JPanel content;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
