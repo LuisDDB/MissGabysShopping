@@ -4,13 +4,29 @@
  */
 package mx.itson.missgabysshopping.iu;
 
-
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import controlador.DAO.EmpleadoDAOIimplement;
 import controlador.baseDatos.baseDatos;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import mx.itson.missgabysshopping.entidades.Empleado;
+
 /**
  *
  * @author Aletz
@@ -83,6 +99,7 @@ public class EmpleadoJP extends javax.swing.JPanel {
         btnIngresarP = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         txfsueldoIngresar = new javax.swing.JTextField();
+        btnReporte = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1442, 559));
@@ -404,6 +421,13 @@ public class EmpleadoJP extends javax.swing.JPanel {
                 .addContainerGap(102, Short.MAX_VALUE))
         );
 
+        btnReporte.setText("Generar Reporte");
+        btnReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -417,7 +441,9 @@ public class EmpleadoJP extends javax.swing.JPanel {
                         .addGap(38, 38, 38)
                         .addComponent(jPanelActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(142, 142, 142)
-                        .addComponent(jPanelEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanelEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnReporte)))
                     .addComponent(jPanelBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -430,8 +456,11 @@ public class EmpleadoJP extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelIntroducir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanelActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanelEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(69, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanelEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(81, 81, 81)
+                        .addComponent(btnReporte)))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -448,7 +477,7 @@ public class EmpleadoJP extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    
+
     private void btnIngresarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarPActionPerformed
 
         Empleado empleado = new Empleado(
@@ -456,69 +485,68 @@ public class EmpleadoJP extends javax.swing.JPanel {
                 txfDireccionIngresar.getText(),
                 txfnssIngresar.getText(),
                 txfTelefonoIngresar.getText(),
-               txfRfcIngresar.getText(),
+                txfRfcIngresar.getText(),
                 txfPuestoIngresar.getText(),
                 Double.parseDouble(txfsueldoIngresar.getText())
-                );
+        );
         baseDatos conexion = new baseDatos();
         EmpleadoDAOIimplement ingresar = new EmpleadoDAOIimplement(conexion.getConnection());
         ingresar.agregar(empleado);
         conexion.closeConnection();
 
 
-       
     }//GEN-LAST:event_btnIngresarPActionPerformed
- 
+
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-         List<Empleado> empleados= new ArrayList<Empleado>();
+        List<Empleado> empleados = new ArrayList<Empleado>();
         baseDatos conexion = new baseDatos();
         EmpleadoDAOIimplement buscar = new EmpleadoDAOIimplement(conexion.getConnection());
-        if(cbxCamposBuscar.getSelectedIndex()==0){
+        if (cbxCamposBuscar.getSelectedIndex() == 0) {
             empleados.add(buscar.buscarPorId(Integer.parseInt(txfCampoBuscar.getText())));
-        }else{
-            empleados=buscar.buscarPor(cbxCamposBuscar.getSelectedItem().toString(), txfCampoBuscar.getText());
+        } else {
+            empleados = buscar.buscarPor(cbxCamposBuscar.getSelectedItem().toString(), txfCampoBuscar.getText());
         }
         conexion.closeConnection();
-        
+
         DefaultTableModel model = (DefaultTableModel) tblEmpleados.getModel();
         model.setRowCount(0);
-        for(Empleado a: empleados){
+        for (Empleado a : empleados) {
             model.addRow(new Object[]{
                 a.getIdEmpleado(),
                 a.getNombre(),
                 a.getDireccion(),
-                 a.getNss(),
+                a.getNss(),
                 a.getTelefono(),
                 a.getPuesto(),
                 a.getRfc(),
                 a.getSueldo()
-                    
-     });
+
+            });
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnEliminarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPActionPerformed
         baseDatos conexion = new baseDatos();
         EmpleadoDAOIimplement eliminar = new EmpleadoDAOIimplement(conexion.getConnection());
-        if(cbxCampoEliminar.getSelectedIndex()==0){
+        if (cbxCampoEliminar.getSelectedIndex() == 0) {
             eliminar.eliminar(Integer.parseInt(txfCampoEliminar.getText()));
-        }else{
+        } else {
             eliminar.eliminar(cbxCampoEliminar.getSelectedItem().toString(), txfCampoEliminar.getText());
         }
         conexion.closeConnection();
-        
+
     }//GEN-LAST:event_btnEliminarPActionPerformed
 
     private void btnActualizarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarPActionPerformed
 
         Empleado empleado = new Empleado(
-            txfNombreActualizar.getText(),
-            txfNssActualizar.getText(),
-            txfDireccionActualizar.getText(),
-            txfTelefonoActualizar.getText(),
-            txfPuestoActualizar.getText(),
-            txfRfcActualizar.getText(),
-            Double.parseDouble(txfSueldoActualizar.getText())
+                txfNombreActualizar.getText(),
+                txfNssActualizar.getText(),
+                txfDireccionActualizar.getText(),
+                txfTelefonoActualizar.getText(),
+                txfPuestoActualizar.getText(),
+                txfRfcActualizar.getText(),
+                Double.parseDouble(txfSueldoActualizar.getText())
         );
         baseDatos conexion = new baseDatos();
         EmpleadoDAOIimplement actualizar = new EmpleadoDAOIimplement(conexion.getConnection());
@@ -526,12 +554,74 @@ public class EmpleadoJP extends javax.swing.JPanel {
         conexion.closeConnection();
     }//GEN-LAST:event_btnActualizarPActionPerformed
 
+    private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
+        
+        //Se declara lista de emplados
+        List<Empleado> empleados = new ArrayList<Empleado>();
+        // Se hace la conexion a la base de datos
+        baseDatos _conexion = new baseDatos();
+        EmpleadoDAOIimplement controlador = new EmpleadoDAOIimplement(_conexion.getConnection());
+        
+        // Se guardan datos de la base de datos
+        empleados = controlador.buscarTodo();
+        
+        // Se crea Documento
+        Document documento = new Document();
+        FileOutputStream ficheroPDF;
+        try {
+            //Se crea el pdf
+            ficheroPDF = new FileOutputStream("Reporte de Empleados.pdf");
+            PdfWriter.getInstance(documento, ficheroPDF);
+            documento.open();
+            
+            // Se poner titulo al pdf
+            Paragraph titulo = new Paragraph("Reporte de Empleados \n\n\n", FontFactory.getFont("arial", 22, Font.BOLD, BaseColor.MAGENTA));
+            documento.add(titulo);
+            //Se le pone tabla al pdf
+            PdfPTable tabla = new PdfPTable(6);
+            // Se le pone tamaño a las celdas
+            float[] columnWidths = {10f, 40f, 30f, 30f, 30f, 40f};
+            tabla.setWidths(columnWidths);
+            // Se le agrega datos a la tabla
+            tabla.addCell("Id");
+            tabla.addCell("Nombre   ");
+            tabla.addCell("Dirección");
+            tabla.addCell("Puesto");
+            tabla.addCell("Sueldo");
+            tabla.addCell("NSS");
+            for (Empleado e : empleados) {
+                tabla.addCell("\n" + e.getIdEmpleado() + "\n");
+                tabla.addCell("\n" + e.getNombre() + "\n");
+                tabla.addCell("\n" + e.getDireccion() + "\n");
+                tabla.addCell("\n" + e.getPuesto() + "\n");
+                tabla.addCell("\n $" + e.getSueldo() + "\n");
+                tabla.addCell("\n" + e.getNss() + "\n");
+            }
+            documento.add(tabla);
+
+            // Se cierra el documento
+            documento.close();
+            
+            // Se abre el pdf
+            File pdfFile = new File("Reporte de Empleados.pdf");
+            Desktop.getDesktop().open(pdfFile);
+
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ProductoJP.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DocumentException ex) {
+            Logger.getLogger(ProductoJP.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ProductoJP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnReporteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizarP;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminarP;
     private javax.swing.JButton btnIngresarP;
+    private javax.swing.JButton btnReporte;
     private javax.swing.JComboBox<String> cbxCampoEliminar;
     private javax.swing.JComboBox<String> cbxCamposBuscar;
     private javax.swing.JLabel jLabel10;

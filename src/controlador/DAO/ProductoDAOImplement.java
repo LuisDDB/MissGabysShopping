@@ -291,5 +291,37 @@ public class ProductoDAOImplement {
         return productos;
 
     }
+    public List<Producto> buscarTodo(){
+        List productos = new ArrayList<Producto>();
+        
+        String quary= "SELECT * from tienda.producto";
+        PreparedStatement _statement;
+
+        try {
+            _statement = this._connection.prepareStatement(quary);
+
+            ResultSet _respuesta = _statement.executeQuery();
+
+            while (_respuesta.next()) {
+
+                productos.add(new Producto(
+                        _respuesta.getInt("idProducto"),
+                        _respuesta.getString("nombre"),
+                        _respuesta.getInt("existencia"),
+                        _respuesta.getDouble("precioUnitario"),
+                        _respuesta.getString("descripcion"),
+                        _respuesta.getDate("caducidad"),
+                        _respuesta.getString("marca"),
+                        _respuesta.getString("categoria"),
+                        _respuesta.getString("unidadMedida")));
+
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("miTienda: Ha ocurrido un error al momento de buscar el cliente en la base de datos, error: " + ex.getMessage());
+        }
+        return productos;
+        
+    }
 
 }

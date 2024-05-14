@@ -4,15 +4,28 @@
  */
 package mx.itson.missgabysshopping.iu;
 
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import controlador.DAO.ClientModel;
-import controlador.DAO.EmpleadoDAOIimplement;
-import controlador.baseDatos.baseDatos;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import mx.itson.missgabysshopping.entidades.Client;
-import mx.itson.missgabysshopping.entidades.Empleado;
 
 /**
  *
@@ -95,6 +108,7 @@ public class ClientsJP extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         txfRfc = new javax.swing.JTextField();
         btnIngresarP = new javax.swing.JButton();
+        btnReport = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1442, 559));
@@ -342,6 +356,13 @@ public class ClientsJP extends javax.swing.JPanel {
                 .addContainerGap(102, Short.MAX_VALUE))
         );
 
+        btnReport.setText("Generar Reporte");
+        btnReport.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnReportMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -353,7 +374,9 @@ public class ClientsJP extends javax.swing.JPanel {
                         .addGap(6, 6, 6)
                         .addComponent(jPanelIntroducir, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(38, 38, 38)
-                        .addComponent(jPanelActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanelActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(145, 145, 145)
+                        .addComponent(btnReport))
                     .addComponent(jPanelBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28))
         );
@@ -362,10 +385,15 @@ public class ClientsJP extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanelBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelIntroducir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanelActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanelIntroducir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanelActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addComponent(btnReport)))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
@@ -505,12 +533,70 @@ public class ClientsJP extends javax.swing.JPanel {
         txfRfcEdit.setText(client.getRfc());
     }//GEN-LAST:event_tblClientsMouseClicked
 
+    private void btnReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReportMouseClicked
+        // Se crea lista de clientes
+        List<Client> clients = new ArrayList<Client>();
+        
+        // Se guardan datos de la base de datos
+        clients =ClientModel.getAll("");
+        
+        // Se crea un documento
+        Document documento = new Document();
+        FileOutputStream ficheroPDF;
+        try {
+            // Se crea el pdf
+            ficheroPDF = new FileOutputStream("Reporte de clientes.pdf");
+            PdfWriter.getInstance(documento, ficheroPDF);
+            documento.open();
+            // Se le pone titulo al pdf
+            Paragraph titulo = new Paragraph("Reporte de Clientes \n\n", FontFactory.getFont("arial", 22, Font.BOLD, BaseColor.RED));
+            documento.add(titulo);
+            // Se crea tabla
+            PdfPTable tabla = new PdfPTable(6);
+            // Se le pone tamaño a las celdas
+            float[] columnWidths = {15f, 25f, 30f, 30f, 30f, 40f};
+            tabla.setWidths(columnWidths);
+
+            // Se le agrega los datos a la celdas de la tabla
+            tabla.addCell("Id");
+            tabla.addCell("Nombre   ");
+            tabla.addCell("Dirección");
+            tabla.addCell("Correo");
+            tabla.addCell("Telefono");
+            tabla.addCell("RFC");
+            for (Client e : clients) {
+                tabla.addCell("\n" + e.getId()+ "\n");
+                tabla.addCell("\n" + e.getName()+ "\n");
+                tabla.addCell("\n" + e.getAddress()+ "\n");
+                tabla.addCell("\n" + e.getEmail()+ "\n");
+                tabla.addCell("\n" + e.getPhone()+ "\n");
+                tabla.addCell("\n" + e.getRfc()+ "\n");
+            }
+            // Se le agrega la tabla al documento
+            documento.add(tabla);
+
+            documento.close();
+            
+            // Abrir el pdf
+            File pdfFile = new File("Reporte de clientes.pdf");
+            Desktop.getDesktop().open(pdfFile);
+
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ProductoJP.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DocumentException ex) {
+            Logger.getLogger(ProductoJP.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ProductoJP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnReportMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizarP;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminarP;
     private javax.swing.JButton btnIngresarP;
+    private javax.swing.JButton btnReport;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

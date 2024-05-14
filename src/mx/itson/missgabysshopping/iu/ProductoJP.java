@@ -5,11 +5,26 @@
 package mx.itson.missgabysshopping.iu;
 
 
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import controlador.DAO.ProductoDAOImplement;
 import controlador.baseDatos.baseDatos;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import mx.itson.missgabysshopping.entidades.Producto;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -87,6 +102,7 @@ public class ProductoJP extends javax.swing.JPanel {
         txfCategoriaIngresar = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         txfUnidadMedidaIngresar = new javax.swing.JTextField();
+        btnReporte = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1442, 559));
@@ -429,6 +445,13 @@ public class ProductoJP extends javax.swing.JPanel {
                 .addContainerGap(84, Short.MAX_VALUE))
         );
 
+        btnReporte.setText("Generar Reporte");
+        btnReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -441,8 +464,13 @@ public class ProductoJP extends javax.swing.JPanel {
                         .addComponent(jPanelIntroducir, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(38, 38, 38)
                         .addComponent(jPanelActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(142, 142, 142)
-                        .addComponent(jPanelEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(142, 142, 142)
+                                .addComponent(jPanelEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(133, 133, 133)
+                                .addComponent(btnReporte))))
                     .addComponent(jPanelBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -453,10 +481,16 @@ public class ProductoJP extends javax.swing.JPanel {
                 .addComponent(jPanelBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelIntroducir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanelActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanelEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(86, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanelIntroducir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanelActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(33, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanelEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnReporte)
+                        .addGap(144, 144, 144))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -475,7 +509,7 @@ public class ProductoJP extends javax.swing.JPanel {
 
     private void btnIngresarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarPActionPerformed
 
-        Producto producto = new Producto(
+        Producto producto = new Producto( // Se crea un objeto producto
             txfNombreIngresar.getText(),
             Integer.parseInt(txfExistenciaIngresar.getText()),
             Double.parseDouble(txfPrecioUnitarioIngresar.getText()),
@@ -484,29 +518,29 @@ public class ProductoJP extends javax.swing.JPanel {
             txfMarcaIngresar.getText(),
             txfCategoriaIngresar.getText(),
             txfUnidadMedidaIngresar.getText()
-        );
-        baseDatos conexion = new baseDatos();
-        ProductoDAOImplement ingresar = new ProductoDAOImplement(conexion.getConnection());
-        ingresar.agregar(producto);
-        conexion.closeConnection();
+        ); // fin de crear el objeto producto
+        baseDatos conexion = new baseDatos(); // conexion de la base de datos
+        ProductoDAOImplement ingresar = new ProductoDAOImplement(conexion.getConnection()); // Interactuar con la base de datos
+        ingresar.agregar(producto);// agreagar a la base de datos
+        conexion.closeConnection();// se cierra la conexion
 
     }//GEN-LAST:event_btnIngresarPActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        List<Producto> Productos= new ArrayList<Producto>();
-        baseDatos conexion = new baseDatos();
-        ProductoDAOImplement buscar = new ProductoDAOImplement(conexion.getConnection());
-        if(cbxCamposBuscar.getSelectedIndex()==0){
-            Productos.add(buscar.buscarxId(Integer.parseInt(txfCampoBuscar.getText())));
+        List<Producto> Productos= new ArrayList<Producto>(); // lista de productos
+        baseDatos conexion = new baseDatos();// conexion de la base de datos
+        ProductoDAOImplement buscar = new ProductoDAOImplement(conexion.getConnection()); // interatuar con la base de datos
+        if(cbxCamposBuscar.getSelectedIndex()==0){ // Obtener el campo por el cual se va a buscar 
+            Productos.add(buscar.buscarxId(Integer.parseInt(txfCampoBuscar.getText()))); //Busca por id
         }else{
-            Productos=buscar.buscarxCampo(cbxCamposBuscar.getSelectedItem().toString(), txfCampoBuscar.getText());
+            Productos=buscar.buscarxCampo(cbxCamposBuscar.getSelectedItem().toString(), txfCampoBuscar.getText());// Busca por x campo
         }
-        conexion.closeConnection();
+        conexion.closeConnection(); // se cierra la conexion
 
-        DefaultTableModel model = (DefaultTableModel) tblProductos.getModel();
-        model.setRowCount(0);
-        for(Producto p: Productos){
-            model.addRow(new Object[]{
+        DefaultTableModel model = (DefaultTableModel) tblProductos.getModel(); // se cre un model que se asigna el model de la tabla productos
+        model.setRowCount(0);// Se inicializan las columnas
+        for(Producto p: Productos){ // recorre los productos 
+            model.addRow(new Object[]{// se agregan columnas
                 p.getId(),
                 p.getNombre(),
                 p.getExistencia(),
@@ -516,24 +550,24 @@ public class ProductoJP extends javax.swing.JPanel {
                 p.getCategoria(),
                 p.getUnidadMedida()
             });
-        }
+        }// fin del for
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnEliminarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPActionPerformed
-        baseDatos conexion = new baseDatos();
-        ProductoDAOImplement eliminar = new ProductoDAOImplement(conexion.getConnection());
-        if(cbxCampoEliminar.getSelectedIndex()==0){
-            eliminar.eliminar(Integer.parseInt(txfCampoEliminar.getText()));
+        baseDatos conexion = new baseDatos(); // conexion a la base de datos
+        ProductoDAOImplement eliminar = new ProductoDAOImplement(conexion.getConnection()); // interacturar con la base de dartos
+        if(cbxCampoEliminar.getSelectedIndex()==0){ // Obtener el campo por el cual se va a eliminar
+            eliminar.eliminar(Integer.parseInt(txfCampoEliminar.getText()));// eliminar por id
         }else{
-            eliminar.eliminar(cbxCampoEliminar.getSelectedItem().toString(), txfCampoEliminar.getText());
+            eliminar.eliminar(cbxCampoEliminar.getSelectedItem().toString(), txfCampoEliminar.getText()); // eliminar por campo que coincida con "x" 
         }
-        conexion.closeConnection();
+        conexion.closeConnection(); // se cierra la conexion
 
     }//GEN-LAST:event_btnEliminarPActionPerformed
 
     private void btnActualizarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarPActionPerformed
 
-        Producto producto = new Producto(
+        Producto producto = new Producto(// se crea el producto
             txfNombreActualizar.getText(),
             Integer.parseInt(txfExistenciaActualizar.getText()),
             Double.parseDouble(txfPrecioUnitarioActualizar.getText()),
@@ -542,12 +576,62 @@ public class ProductoJP extends javax.swing.JPanel {
             txfMarcaActualizar.getText(),
             txfCategoriaActualizar.getText(),
             txfUnidadMedidaActualizar.getText()
-        );
-        baseDatos conexion = new baseDatos();
-        ProductoDAOImplement actualizar = new ProductoDAOImplement(conexion.getConnection());
-        actualizar.modificar(producto, Integer.parseInt(txfIdActualizar.getText()));
-        conexion.closeConnection();
+        );// Fin de crear prodcuto
+        
+        baseDatos conexion = new baseDatos();//Conexion a la base de datos
+        ProductoDAOImplement actualizar = new ProductoDAOImplement(conexion.getConnection());// interactuar con la base de datos
+        actualizar.modificar(producto, Integer.parseInt(txfIdActualizar.getText()));// se actualiza la base de datos
+        conexion.closeConnection();// se cierra la conexion
     }//GEN-LAST:event_btnActualizarPActionPerformed
+
+    private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
+        List<Producto> produsctos = new ArrayList<Producto>(); // Se crea lista de productos
+        baseDatos _conexion = new baseDatos(); // Se crea una conexion a la base de daros
+        ProductoDAOImplement controlador = new ProductoDAOImplement(_conexion.getConnection());// Interaccion con la base de datos
+        produsctos = controlador.buscarTodo(); // se guardan datos de la base de datos
+        Document documento = new Document(); // se crea documentos
+        FileOutputStream ficheroPDF; //Se invoca la clase FileOutputStream
+        try { // para detectar errores la crear el pdf
+            ficheroPDF = new FileOutputStream("Reporte de productos.pdf");// nombre del archivo
+            PdfWriter.getInstance(documento, ficheroPDF);// Se instancia
+            documento.open(); // se abre el documento para poder modificarlo
+            Paragraph titulo = new Paragraph("Reporte de Productos \n\n", FontFactory.getFont("arial", 22, Font.BOLD, BaseColor.BLUE)); // Se crea el titulo
+            documento.add(titulo); // se le agrega al documento
+            PdfPTable tabla = new PdfPTable(6); // se crea la tabla
+            float[] columnWidths = {10f, 40f, 20f, 20f, 25f, 30f}; // medidas de la celdas
+            tabla.setWidths(columnWidths); // se le ponen las medidas a la tabla
+           
+            //Se pone las titulos de las columnas            
+            tabla.addCell("Id"); 
+            tabla.addCell("Nombre   ");
+            tabla.addCell("Existencia");
+            tabla.addCell("Precio Unitario");
+            tabla.addCell("Caducidad");
+            tabla.addCell("Marca");
+            // Se termina de poner los titulos de las columnas
+
+            for (Producto p : produsctos) { // for para introducir la lista de producrtos en la tablas
+                tabla.addCell("\n" + p.getId() + "\n");
+                tabla.addCell("\n" + p.getNombre() + "\n");
+                tabla.addCell("\n" + p.getExistencia() + "\n");
+                tabla.addCell("\n $ " + p.getPrecioUnitario() + "\n");
+                tabla.addCell("\n" + p.getCaducidad() + "\n");
+                tabla.addCell("\n" + p.getMarca() + "\n");
+            }
+            documento.add(tabla); // Se agraga la tabla en el documento
+
+            documento.close();// se cierra el documento
+            File pdfFile = new File("Reporte de productos.pdf"); // se intancia File con el nombre del archivo
+            Desktop.getDesktop().open(pdfFile);// abrir el pdf generado
+
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ProductoJP.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DocumentException ex) {
+            Logger.getLogger(ProductoJP.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ProductoJP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnReporteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -555,6 +639,7 @@ public class ProductoJP extends javax.swing.JPanel {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminarP;
     private javax.swing.JButton btnIngresarP;
+    private javax.swing.JButton btnReporte;
     private javax.swing.JComboBox<String> cbxCampoEliminar;
     private javax.swing.JComboBox<String> cbxCamposBuscar;
     private javax.swing.JLabel jLabel10;

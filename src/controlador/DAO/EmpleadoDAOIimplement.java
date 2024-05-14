@@ -245,7 +245,7 @@ public class EmpleadoDAOIimplement {
 
     }
 
-    public Object buscarTodo() {
+    public List<Empleado> buscarTodo() {
         List<Empleado> _listaEmpleados = new ArrayList<Empleado>();
 
         StringBuilder _sql = new StringBuilder();
@@ -291,5 +291,7 @@ public class EmpleadoDAOIimplement {
 
         return _listaEmpleados;
     }
+    
+   
 
 }
