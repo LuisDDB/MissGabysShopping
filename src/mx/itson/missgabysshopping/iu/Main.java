@@ -54,6 +54,7 @@ public class Main extends javax.swing.JFrame {
 
         btnProducto.setBackground(new java.awt.Color(255, 204, 255));
         btnProducto.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        btnProducto.setForeground(new java.awt.Color(0, 0, 0));
         btnProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/missgabysshopping/imagenes/product.png"))); // NOI18N
         btnProducto.setText("Producto");
         btnProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 255), 5));
@@ -68,6 +69,7 @@ public class Main extends javax.swing.JFrame {
 
         btnCliente.setBackground(new java.awt.Color(255, 204, 255));
         btnCliente.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        btnCliente.setForeground(new java.awt.Color(0, 0, 0));
         btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/missgabysshopping/imagenes/Cliente.png"))); // NOI18N
         btnCliente.setText("Cliente");
         btnCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 255), 5));
@@ -82,6 +84,7 @@ public class Main extends javax.swing.JFrame {
 
         btnEmpleado.setBackground(new java.awt.Color(255, 204, 255));
         btnEmpleado.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        btnEmpleado.setForeground(new java.awt.Color(0, 0, 0));
         btnEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/missgabysshopping/imagenes/Empleado.png"))); // NOI18N
         btnEmpleado.setText("Empleado");
         btnEmpleado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 255), 5));
@@ -94,13 +97,14 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Caveat", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Caveat", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("MissGabysShopping");
 
         btnInicio.setBackground(new java.awt.Color(255, 204, 255));
         btnInicio.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        btnInicio.setForeground(new java.awt.Color(0, 0, 0));
         btnInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/itson/missgabysshopping/imagenes/homeV2.png"))); // NOI18N
         btnInicio.setText("Inicio");
         btnInicio.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 255), 5, true));
