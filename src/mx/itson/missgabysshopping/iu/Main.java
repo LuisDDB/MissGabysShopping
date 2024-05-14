@@ -73,6 +73,11 @@ public class Main extends javax.swing.JFrame {
         btnCliente.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnCliente.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnCliente.setIconTextGap(10);
+        btnCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClienteActionPerformed(evt);
+            }
+        });
 
         btnEmpleado.setBackground(new java.awt.Color(255, 204, 255));
         btnEmpleado.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
@@ -220,6 +225,17 @@ public class Main extends javax.swing.JFrame {
         content.revalidate();
         content.repaint();
     }//GEN-LAST:event_btnEmpleadoActionPerformed
+
+    private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
+         ClientsJP clientJP = new ClientsJP();
+        clientJP.setSize(880, 694) ;
+        clientJP.setLocation(0, 0);
+
+        content.removeAll();
+        content.add(clientJP, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_btnClienteActionPerformed
 
     /**
      * @param args the command line arguments

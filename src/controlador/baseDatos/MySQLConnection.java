@@ -20,7 +20,7 @@ public class MySQLConnection {
     public static Connection get(){
         Connection connection =null;
         try{
-            connection = DriverManager.getConnection("jdbc:mysql://10.31.2.227:3306/tienda?allowPublicKeyRetrieval=true&useSSL=false","bda","_987654321");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tienda?allowPublicKeyRetrieval=true&useSSL=false","Luis Daniel","Luis2004");
         }catch(Exception ex){
             System.err.print("Error: "+ex.getMessage());
         }
